@@ -26,8 +26,8 @@ function startGame() {
   hasStartedOnce = true;
   gameStarted = true;
   
-  mario.src = './img/narutorun.gif';
-  mario.style.width = '5em';
+  mario.src = 'narutorun.gif';
+  mario.style.width = '14.5em';
 
   gameBoard.style.animation = `mover-fundo 60s infinite linear`;
   
@@ -36,7 +36,7 @@ function startGame() {
   
   timer = setInterval(() => {
     time++;
-    scoreDisplay.textContent = `Time: ${time}s`;
+    scoreDisplay.textContent = `Tempo: ${time}s`;
   }, 1000);
 
   
@@ -47,23 +47,15 @@ function startGame() {
   setInterval(() => {
   if (!gameStarted) return;
 
-  speed = speed - 0.025; 
+  // Aumentar a velocidade do pipe
+  speed -= 0.1;
   pipe.style.animation = `pipe-animation ${speed}s infinite linear`;
 
-}, 10000);
-  
-  setInterval(() => {
-  if (!gameStarted) return;
-
-  
-  speed -= 0.05;
-  pipe.style.animation = `pipe-animation ${speed}s infinite linear`;
-
-  
+  // Diminuir o tempo entre os troncos
   pipeDelayMin = Math.max(300, pipeDelayMin - 200);
   pipeDelayMax = Math.max(500, pipeDelayMax - 200);
 
-}, 10000); 
+}, 10000); // a cada 10 segundos
 }
 
 function jump() {
@@ -80,7 +72,7 @@ function checkColision() {
   const pipePosition = pipe.offsetLeft;
   const marioBottom = parseFloat(window.getComputedStyle(mario).bottom);
   
-  if (pipePosition <= 25 && pipePosition > 0 && marioBottom > 25 && marioBottom < 60) {
+  if (pipePosition <= 100 && pipePosition > 0 && marioBottom > 80 && marioBottom < 150) {
     pipe.style.animation = 'none';
     pipe.style.left = `${pipePosition}px`;
 
@@ -92,11 +84,11 @@ function checkColision() {
     gameStarted = false;
 
     showGameOver();
-    mario.src = './img/crying.png';
-    mario.style.width = '4em';
+    mario.src = 'crying.png';
+    mario.style.width = '11em';
   }
   
-    if (pipePosition <= 45 && pipePosition > 0 && marioBottom < 25) {
+    if (pipePosition <= 200 && pipePosition > 0 && marioBottom < 80) {
     pipe.style.animation = 'none';
     pipe.style.left = `${pipePosition}px`;
 
@@ -108,8 +100,8 @@ function checkColision() {
       gameStarted = false;
 
     showGameOver();
-      mario.src = './img/crying.png';
-      mario.style.width = '4em';
+      mario.src = 'crying.png';
+      mario.style.width = '11em';
   }
 }
 
@@ -122,7 +114,7 @@ function spawnPipe() {
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
       pipe.style.transition = `left ${speed}s linear`;
-      pipe.style.left = '-4em';
+      pipe.style.left = '-9em';
     });
   });
 
@@ -134,7 +126,7 @@ function spawnPipe() {
 function showGameOver() {
   const gameOverScreen = document.getElementById('game-over');
   const finalScore = document.getElementById('final-score');
-  finalScore.textContent = `Final Time: ${time}s`;
+  finalScore.textContent = `Tempo Final: ${time}s`;
   gameOverScreen.style.display = 'flex';
 }
 
