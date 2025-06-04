@@ -11,7 +11,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('../img/bluesky.jpeg');
+  background-image: url('bluesky.jpeg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -20,30 +20,28 @@
 
 .game-board{
   width: 100%;
-  height: 15em;
+  height: 35em;
   border: 0.1em solid #333;
   margin: 0 auto;
   position: relative;
   overflow: hidden;
-  margin-top: 7em;
-  background-image: url('../img/hokagesloop.png');
+  margin-top: 15em;
+  background-image: url('hokagesloop.jpg');
   background-repeat: repeat-x;
   background-size: cover;
-  /*animation: mover-fundo 60s linear infinite;*/
 }
 
 .pipe{
   position: absolute;
-  bottom: 0;
-  height: 4em;
-  width: 5em;
-  right: -4em;
-  /*animation: pipe-animation 1.5s infinite linear;*/
+  bottom: -2.5em;
+  height: 12em;
+  width: 12em;
+  right: -9em;
 }
 
 .mario{
-  left: 1em;
-  width: 2em;
+  left: 3em;
+  width: 5.5em;
   position: absolute;
   bottom: 0;
 }
@@ -59,13 +57,14 @@
 }
 
 .botao {
+  margin-top: 7em;
   transition: background-color 0.3s ease, transform 0.2s;
   border: none;
   background-color: #ff5722;
   color: white;
-  font-size: 1.2em;
+  font-size: 2em;
   border-radius: 0.5em;
-  padding: 0.6em 1.3em;
+  padding: 1em 2em;
   cursor: pointer;
   box-shadow: 0 0.4em 0.6em rgba(0, 0, 0, 0.2);
 }
@@ -81,14 +80,14 @@
 
 .score {
   position: absolute;
-  top: 0.3em;
+  top: 3em;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 1.4em;
+  font-size: 2.5em;
   font-weight: bold;
   color: white;
   background-color: #ff5722;
-  padding: 0.2em 1.5em;
+  padding: 0.5em 1em;
   border-radius: 0.5em;
   z-index: 5;
   width: 8em;
@@ -99,13 +98,13 @@
 }
 
 .game-over {
-  display: none; /* começa invisível */
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.6); /* fundo escurecido */
+  background: rgba(0, 0, 0, 0.6);
   justify-content: center;
   align-items: center;
   z-index: 10;
@@ -120,7 +119,7 @@
 }
 
 .game-over h1 {
-  font-size: 2.5em;
+  font-size: 5em;
   color: #e53935;
   margin-bottom: 0.5em;
 }
@@ -130,7 +129,7 @@
 }
 
 #final-score {
-  font-size: 1.5em;
+  font-size: 3em;
   color: #333;
 }
 
@@ -140,43 +139,31 @@
   }
   
   40%{
-    bottom: 4.5em;
+    bottom: 12em;
   }
   
   50%{
-    bottom: 4.5em;
+    bottom: 12em;
   }
   
   60%{
-    bottom: 4.5em;
+    bottom: 12em;
   }
   
 }
 
 @keyframes pipe-animation{
   from{
-    right: -1.8em;
+    right: -9em;
   }
   
   to{
     right: 100%;
   }
   
-}
-
-
-
-
-@keyframes pipe-animation{
-  from{
-    right: -1.8em;
-  }
-  
-  to{
-    right: 100%;
-  }
   
 }
+
 
 @keyframes mover-fundo{
   from{
@@ -187,3 +174,4 @@
     background-position: 100% 0;
   }
 }
+
