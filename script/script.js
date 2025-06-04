@@ -26,7 +26,7 @@ function startGame() {
   hasStartedOnce = true;
   gameStarted = true;
   
-  mario.src = 'narutorun.gif';
+  mario.src = '../img/narutorun.gif';
   mario.style.width = '14.5em';
 
   gameBoard.style.animation = `mover-fundo 60s infinite linear`;
@@ -84,7 +84,7 @@ function checkColision() {
     gameStarted = false;
 
     showGameOver();
-    mario.src = 'crying.png';
+    mario.src = '../img/crying.png';
     mario.style.width = '11em';
   }
   
@@ -100,7 +100,7 @@ function checkColision() {
       gameStarted = false;
 
     showGameOver();
-      mario.src = 'crying.png';
+      mario.src = '../img/crying.png';
       mario.style.width = '11em';
   }
 }
